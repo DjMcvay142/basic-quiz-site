@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+  margin-bottom: 1rem;
 }
 
 .start-title {
@@ -30,4 +31,34 @@ body {
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.answer-button {
+  flex: 1 1 calc(50% - 0.5rem);
+  padding: 2rem 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.answer-button:nth-child(1) {
+  background-color: #e74c3c;
+}
+.answer-button:nth-child(2) {
+  background-color: #3498db;
+}
+.answer-button:nth-child(3) {
+  background-color: #f1c40f;
+}
+.answer-button:nth-child(4) {
+  background-color: #2ecc71;
 }
