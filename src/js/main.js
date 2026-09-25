@@ -85,23 +85,27 @@ for (let i = 0; i < answerButtons.length; i++) {
     const selectedAnswer = this.textContent;
 
     if (selectedAnswer === currentQuestion.answer) {
-      alert("Correct!");
+      questionScreen.classList.add("correct");
       score++;
     } else {
-      alert("Incorrect!");
+      questionScreen.classList.add("incorrect");
     }
     for (let i = 0; i < answerButtons.length; i++) {
       answerButtons[i].disabled = true;
     }
-    questionIndex++;
-    if (questionIndex < questions.length) {
-      displayQuestion(questionIndex);
-    } else {
-      alert("Quiz completed!");
-      questionScreen.classList.add("hidden");
-      resultsScreen.classList.remove("hidden");
-      document.getElementById("score").textContent =
-        `${score}/${questions.length}`;
-    }
+
+    setTimeout(() => {
+      questionScreen.classList.remove("correct", "incorrect");
+
+      questionIndex++;
+      if (questionIndex < questions.length) {
+        displayQuestion(questionIndex);
+      } else {
+        questionScreen.classList.add("hidden");
+        resultsScreen.classList.remove("hidden");
+        document.getElementById("score").textContent =
+          `${score}/${questions.length}`;
+      }
+    }, 800);
   });
 }

@@ -16,9 +16,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 1px solid black;
+  border: 0.25rem solid black;
   margin-bottom: 1rem;
   padding: 2rem 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .quiz-container > h1,
@@ -55,6 +56,9 @@ body {
   cursor: pointer;
   color: white;
   margin-bottom: 1rem;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .answer-button:nth-child(1) {
@@ -70,6 +74,19 @@ body {
   background-color: #2ecc71;
 }
 
+.answer-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.answer-button:hover {
+  transform: scale(1.03);
+}
+
+.answer-button:disabled:hover {
+  transform: none;
+}
+
 .score-title {
   font-size: 2rem;
 }
@@ -81,4 +98,12 @@ body {
 
 .hidden {
   display: none;
+}
+
+.correct {
+  border-color: #2ecc71;
+}
+
+.incorrect {
+  border-color: #e74c3c;
 }
