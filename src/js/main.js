@@ -75,6 +75,7 @@ function displayQuestion(questionIndex) {
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
     answerButtons[i].textContent = question.options[i];
+    answerButtons[i].disabled = false;
   }
 }
 
@@ -88,6 +89,9 @@ for (let i = 0; i < answerButtons.length; i++) {
       score++;
     } else {
       alert("Incorrect!");
+    }
+    for (let i = 0; i < answerButtons.length; i++) {
+      answerButtons[i].disabled = true;
     }
     questionIndex++;
     if (questionIndex < questions.length) {
