@@ -15,8 +15,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   border: 1px solid black;
   margin-bottom: 1rem;
+  padding: 2rem 1rem;
+}
+
+.quiz-container > h1,
+.quiz-container > p,
+.quiz-container > button {
+  margin: 0;
 }
 
 .start-title {
@@ -30,7 +38,6 @@ body {
 .start-button {
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
 }
 
 .answer-buttons {
@@ -61,4 +68,13 @@ body {
 }
 .answer-button:nth-child(4) {
   background-color: #2ecc71;
+}
+
+.score-title {
+  font-size: 2rem;
+}
+
+.score-value {
+  font-size: 4rem;
+  font-weight: bold;
 }
