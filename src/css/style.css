@@ -9,6 +9,7 @@
   --colour-correct: #16a34a;
   --colour-correct-bg: #f0fdf4;
   --colour-incorrect: #dc2626;
+  --colour-incorrect-bg: #fef2f2;
   --colour-border: #e2e8f0;
   --colour-surface: #ffffff;
 }
@@ -154,8 +155,10 @@ h1 {
 
 .correct {
   border-color: var(--colour-correct);
+  background-color: var(--colour-correct-bg);
 }
 
 .incorrect {
   border-color: var(--colour-incorrect);
+  background-color: var(--colour-incorrect-bg);
 }

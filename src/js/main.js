@@ -96,7 +96,7 @@ function displayQuestion(questionIndex) {
   }
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
-    answerButtons[i].textContent = question.options[i];
+    answerButtons[i].querySelector("span").textContent = question.options[i];
     answerButtons[i].disabled = false;
   }
 }
@@ -104,20 +104,38 @@ function displayQuestion(questionIndex) {
 for (let i = 0; i < answerButtons.length; i++) {
   answerButtons[i].addEventListener("click", function () {
     const currentQuestion = questions[questionIndex];
-    const selectedAnswer = this.textContent;
+    const selectedAnswer = this.querySelector("span").textContent;
+    const selectedButton = this;
+    let correctButton = answerButtons.find(
+      (button) =>
+        button.querySelector("span").textContent === currentQuestion.answer,
+    );
+
+    const checkmarkSVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>`;
 
     if (selectedAnswer === currentQuestion.answer) {
-      questionScreen.classList.add("correct");
+      selectedButton.classList.add("correct");
+      selectedButton
+        .querySelector("span")
+        .insertAdjacentHTML("afterend", checkmarkSVG);
       score++;
     } else {
-      questionScreen.classList.add("incorrect");
+      selectedButton.classList.add("incorrect");
+      correctButton.classList.add("correct");
+      correctButton
+        .querySelector("span")
+        .insertAdjacentHTML("afterend", checkmarkSVG);
     }
+
     for (let i = 0; i < answerButtons.length; i++) {
       answerButtons[i].disabled = true;
     }
 
     setTimeout(() => {
-      questionScreen.classList.remove("correct", "incorrect");
+      selectedButton.classList.remove("correct", "incorrect");
+      correctButton.classList.remove("correct");
+      const existingIcon = questionScreen.querySelector(".answer-button svg");
+      if (existingIcon) existingIcon.remove();
 
       questionIndex++;
       if (questionIndex < questions.length) {
