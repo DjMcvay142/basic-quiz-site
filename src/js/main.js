@@ -13,6 +13,7 @@ const answerButtons = [
   answerButton3,
 ];
 const restartButton = document.getElementById("restart-button");
+const progressBar = document.getElementById("progress-bar");
 const questionTitle = document.getElementById("question-title");
 const questionText = document.getElementById("question-text");
 let questionIndex = 0;
@@ -71,6 +72,7 @@ restartButton.addEventListener("click", function () {
 
 function displayQuestion(questionIndex) {
   const question = questions[questionIndex];
+  progressBar.textContent = `${questionIndex + 1} of ${questions.length}`;
   questionTitle.textContent = `Question ${questionIndex + 1}`;
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
