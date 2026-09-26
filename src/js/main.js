@@ -13,6 +13,8 @@ const answerButtons = [
   answerButton3,
 ];
 const restartButton = document.getElementById("restart-button");
+const headerScore = document.getElementById("header-score");
+const progressDots = document.getElementById("progress-dots");
 const questionCounter = document.getElementById("question-counter");
 const questionText = document.getElementById("question-text");
 let questionIndex = 0;
@@ -69,9 +71,29 @@ restartButton.addEventListener("click", function () {
   startScreen.classList.remove("hidden");
 });
 
+// Progress dots
+let dots = [];
+for (let i = 0; i < questions.length; i++) {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  dots.push(dot);
+  progressDots.appendChild(dot);
+}
+
+// Function to display the current question and update the score and question counter
+
 function displayQuestion(questionIndex) {
   const question = questions[questionIndex];
   questionCounter.textContent = `${questionIndex + 1} of ${questions.length}`;
+  headerScore.textContent = `Score: ${score}/${questions.length}`;
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = "dot";
+    if (i < questionIndex) {
+      dots[i].classList.add("filled");
+    } else if (i === questionIndex) {
+      dots[i].classList.add("current");
+    }
+  }
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
     answerButtons[i].textContent = question.options[i];
