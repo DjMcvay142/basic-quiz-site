@@ -157,12 +157,12 @@ h1 {
   background-color: var(--colour-bg);
 }
 
-.answer-button:hover {
-  transform: scale(1.03);
-}
-
-.answer-button:disabled:hover {
-  transform: none;
+.answer-button:hover:enabled,
+.answer-button:focus-visible {
+  border-color: var(--colour-accent);
+  background-color: var(--colour-accent-bg);
+  color: var(--colour-accent);
+  font-weight: 600;
 }
 
 .score-title {
