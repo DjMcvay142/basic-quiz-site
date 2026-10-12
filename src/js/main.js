@@ -88,7 +88,8 @@ for (let i = 0; i < questions.length; i++) {
 function displayQuestion(questionIndex) {
   const question = questions[questionIndex];
   questionCounter.textContent = `Question ${questionIndex + 1} of ${questions.length}`;
-  headerScore.textContent = `Score ${score}/${questionIndex}`;
+  headerScore.textContent =
+    questionIndex === 0 ? "Score 0" : `Score ${score}/${questionIndex}`;
   dots[questionIndex].classList.add("current");
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
