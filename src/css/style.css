@@ -8,8 +8,10 @@
   --colour-accent-bg: #eff6ff;
   --colour-correct: #16a34a;
   --colour-correct-bg: #f0fdf4;
+  --colour-correct-text: #15803d;
   --colour-incorrect: #dc2626;
   --colour-incorrect-bg: #fef2f2;
+  --colour-incorrect-text: #b91c1c;
   --colour-border: #e2e8f0;
   --colour-surface: #ffffff;
   --content-width: 640px;
@@ -176,9 +178,13 @@ h1 {
 .answer-button.correct {
   border-color: var(--colour-correct);
   background-color: var(--colour-correct-bg);
+  color: var(--colour-correct-text);
+  font-weight: 600;
 }
 
 .answer-button.incorrect {
   border-color: var(--colour-incorrect);
   background-color: var(--colour-incorrect-bg);
+  color: var(--colour-incorrect-text);
+  font-weight: 600;
 }
