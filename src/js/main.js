@@ -127,6 +127,8 @@ for (let i = 0; i < answerButtons.length; i++) {
         .insertAdjacentHTML("afterend", checkmarkSVG);
     }
 
+    headerScore.textContent = `Score ${score}/${questionIndex + 1}`;
+
     for (let i = 0; i < answerButtons.length; i++) {
       answerButtons[i].disabled = true;
     }
