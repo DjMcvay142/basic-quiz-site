@@ -147,8 +147,9 @@ h1 {
 }
 
 .answer-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  cursor: default;
+  color: var(--colour-muted);
+  background-color: var(--colour-bg);
 }
 
 .answer-button:hover {
@@ -172,12 +173,12 @@ h1 {
   display: none;
 }
 
-.correct {
+.answer-button.correct {
   border-color: var(--colour-correct);
   background-color: var(--colour-correct-bg);
 }
 
-.incorrect {
+.answer-button.incorrect {
   border-color: var(--colour-incorrect);
   background-color: var(--colour-incorrect-bg);
 }
