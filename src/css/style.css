@@ -12,6 +12,13 @@
   --colour-incorrect-bg: #fef2f2;
   --colour-border: #e2e8f0;
   --colour-surface: #ffffff;
+  --content-width: 640px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -31,7 +38,7 @@ h1 {
 .quiz-container {
   background-color: var(--colour-surface);
   width: 100%;
-  max-width: 750px;
+  max-width: var(--content-width);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -86,7 +93,6 @@ h1 {
   height: 10px;
   border-radius: 50%;
   background-color: var(--colour-border);
-  box-sizing: border-box;
 }
 
 .dot.filled {
@@ -96,6 +102,11 @@ h1 {
 .dot.current {
   background-color: var(--colour-surface);
   border: 2px solid var(--colour-accent);
+}
+
+.quiz-layout {
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 .question-text {
@@ -114,7 +125,6 @@ h1 {
 
 .answer-button {
   cursor: pointer;
-  box-sizing: border-box;
   width: 100%;
   padding: 16px 20px;
   border: 1.5px solid var(--colour-border);
