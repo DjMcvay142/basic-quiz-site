@@ -84,8 +84,8 @@ for (let i = 0; i < questions.length; i++) {
 
 function displayQuestion(questionIndex) {
   const question = questions[questionIndex];
-  questionCounter.textContent = `${questionIndex + 1} of ${questions.length}`;
-  headerScore.textContent = `Score: ${score}/${questions.length}`;
+  questionCounter.textContent = `Question ${questionIndex + 1} of ${questions.length}`;
+  headerScore.textContent = `Score ${score}/${questionIndex}`;
   for (let i = 0; i < dots.length; i++) {
     dots[i].className = "dot";
     if (i < questionIndex) {
