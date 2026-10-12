@@ -4,6 +4,7 @@
   --colour-muted: #64748b;
   --colour-accent: #2563eb;
   --colour-accent-bg: #eff6ff;
+  --colour-accent-hover: #1d4ed8;
   --colour-correct: #16a34a;
   --colour-correct-bg: #f0fdf4;
   --colour-correct-text: #15803d;
@@ -64,17 +65,37 @@ h1 {
   align-items: stretch;
 }
 
-.start-title {
-  font-size: 2rem;
+.start-title,
+.score-title {
+  font-size: 1.75rem;
+  text-align: center;
 }
 
 .start-description {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  color: var(--colour-muted);
+  text-align: center;
 }
 
 .start-button {
-  font-size: 1.25rem;
-  padding: 0.5rem 1rem;
+  cursor: pointer;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radius-buttons);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--colour-surface);
+  background-color: var(--colour-accent);
+}
+
+.start-button:hover {
+  background-color: var(--colour-accent-hover);
+}
+
+.start-button:focus-visible {
+  outline: 2px solid var(--colour-accent);
+  outline-offset: 2px;
 }
 
 .question-header {
@@ -101,10 +122,6 @@ h1 {
   height: 10px;
   border-radius: 50%;
   background-color: var(--colour-border);
-}
-
-.dot.filled {
-  background-color: var(--colour-accent);
 }
 
 .dot.current {
@@ -171,13 +188,12 @@ h1 {
   font-weight: 600;
 }
 
-.score-title {
-  font-size: 2rem;
-}
-
 .score-value {
+  font-family: "Sora", sans-serif;
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--colour-accent);
 }
 
 .hidden {
