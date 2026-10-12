@@ -57,6 +57,10 @@ h1 {
   margin: 0;
 }
 
+.question-card {
+  align-items: stretch;
+}
+
 .start-title {
   font-size: 2rem;
 }
@@ -114,7 +118,6 @@ h1 {
   font-size: 26px;
   font-weight: 600;
   line-height: 1.35;
-  text-align: center;
 }
 
 .answer-buttons {
