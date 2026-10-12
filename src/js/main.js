@@ -110,6 +110,8 @@ for (let i = 0; i < answerButtons.length; i++) {
     const checkmarkSVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>`;
     const crossSVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>`;
 
+    let timeoutDuration = 800;
+
     if (selectedAnswer === currentQuestion.answer) {
       selectedButton.classList.add("correct");
       selectedButton
@@ -119,6 +121,7 @@ for (let i = 0; i < answerButtons.length; i++) {
       dots[questionIndex].classList.add("correct");
       score++;
     } else {
+      timeoutDuration = 1400;
       selectedButton.classList.add("incorrect");
       selectedButton
         .querySelector("span")
@@ -153,6 +156,6 @@ for (let i = 0; i < answerButtons.length; i++) {
         document.getElementById("score").textContent =
           `${score}/${questions.length}`;
       }
-    }, 800);
+    }, timeoutDuration);
   });
 }
