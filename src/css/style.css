@@ -114,6 +114,14 @@ h1 {
   border: 2px solid var(--colour-accent);
 }
 
+.dot.correct {
+  background-color: var(--colour-correct);
+}
+
+.dot.incorrect {
+  background-color: var(--colour-incorrect);
+}
+
 .quiz-layout {
   max-width: var(--content-width);
   margin: 0 auto;

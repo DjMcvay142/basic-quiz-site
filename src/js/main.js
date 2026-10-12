@@ -69,6 +69,9 @@ restartButton.addEventListener("click", function () {
   score = 0;
   resultsScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("correct", "incorrect", "current");
+  }
 });
 
 // Progress dots
@@ -86,14 +89,7 @@ function displayQuestion(questionIndex) {
   const question = questions[questionIndex];
   questionCounter.textContent = `Question ${questionIndex + 1} of ${questions.length}`;
   headerScore.textContent = `Score ${score}/${questionIndex}`;
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = "dot";
-    if (i < questionIndex) {
-      dots[i].classList.add("filled");
-    } else if (i === questionIndex) {
-      dots[i].classList.add("current");
-    }
-  }
+  dots[questionIndex].classList.add("current");
   questionText.textContent = question.question;
   for (let i = 0; i < question.options.length; i++) {
     answerButtons[i].querySelector("span").textContent = question.options[i];
@@ -112,19 +108,27 @@ for (let i = 0; i < answerButtons.length; i++) {
     );
 
     const checkmarkSVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>`;
+    const crossSVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>`;
 
     if (selectedAnswer === currentQuestion.answer) {
       selectedButton.classList.add("correct");
       selectedButton
         .querySelector("span")
         .insertAdjacentHTML("afterend", checkmarkSVG);
+      dots[questionIndex].classList.remove("current");
+      dots[questionIndex].classList.add("correct");
       score++;
     } else {
       selectedButton.classList.add("incorrect");
+      selectedButton
+        .querySelector("span")
+        .insertAdjacentHTML("afterend", crossSVG);
       correctButton.classList.add("correct");
       correctButton
         .querySelector("span")
         .insertAdjacentHTML("afterend", checkmarkSVG);
+      dots[questionIndex].classList.remove("current");
+      dots[questionIndex].classList.add("incorrect");
     }
 
     headerScore.textContent = `Score ${score}/${questionIndex + 1}`;
@@ -136,8 +140,9 @@ for (let i = 0; i < answerButtons.length; i++) {
     setTimeout(() => {
       selectedButton.classList.remove("correct", "incorrect");
       correctButton.classList.remove("correct");
-      const existingIcon = questionScreen.querySelector(".answer-button svg");
-      if (existingIcon) existingIcon.remove();
+      const existingIcons =
+        questionScreen.querySelectorAll(".answer-button svg");
+      existingIcons.forEach((icon) => icon.remove());
 
       questionIndex++;
       if (questionIndex < questions.length) {
