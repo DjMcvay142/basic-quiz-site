@@ -139,7 +139,8 @@ h1 {
   padding: 16px 20px;
   border: 1.5px solid var(--colour-border);
   border-radius: var(--radius-buttons);
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-family: inherit;
   text-align: left;
   color: var(--colour-text);
   background-color: var(--colour-surface);
