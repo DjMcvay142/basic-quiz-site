@@ -30,7 +30,6 @@ h1 {
 
 .quiz-container {
   background-color: var(--colour-surface);
-  height: 100%;
   width: 100%;
   max-width: 750px;
   margin: 0 auto;
@@ -43,7 +42,6 @@ h1 {
   box-shadow: 0 1px 3px rgba(14, 23, 42, 0.06);
   margin-bottom: 1rem;
   padding: 2rem 1rem;
-  transition: border-color 0.3s ease;
 }
 
 .quiz-container > h1,

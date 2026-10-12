@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/main.js"></script>
     <title>Basic Quiz Site</title>
   </head>
   <body>
@@ -15,13 +16,11 @@
     </div>
     <div class="quiz-container hidden" id="question-screen">
       <div class="question-header">
-        <p class="question-counter" id="question-counter">Question 1 of 5</p>
-        <p class="header-score" id="header-score">Score: 0</p>
+        <p class="question-counter" id="question-counter"></p>
+        <p class="header-score" id="header-score"></p>
       </div>
       <div class="progress-dots" id="progress-dots"></div>
-      <p class="question-text" id="question-text">
-        What is the capital of France?
-      </p>
+      <p class="question-text" id="question-text"></p>
       <div class="answer-buttons">
         <button class="answer-button" id="answer-button-1">
           <span></span>
@@ -43,5 +42,4 @@
       <button class="start-button" id="restart-button">Restart Quiz</button>
     </div>
   </body>
-  <script src="js/main.js"></script>
 </html>
